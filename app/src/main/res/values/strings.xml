@@ -4,4 +4,34 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="create">Create business</string>
+    <string name="bus_num">Business Number</string>
+    <string name="bus_name">Business Name</string>
+    <string name="bus_type">Business Type</string>
+    <string-array name="bus_type_array">
+        <item>Fisher</item>
+        <item>Distributor</item>
+        <item>Processor</item>
+        <item>Fish Monger</item>
+    </string-array>
+    <string name="bus_address">Business Address</string>
+    <string name="bus_provTerr">Province/Territory</string>
+    <string-array name="bus_provTerr_array">
+        <item>AB</item>
+        <item>BC</item>
+        <item>MB</item>
+        <item>NB</item>
+        <item>NL</item>
+        <item>NS</item>
+        <item>NT</item>
+        <item>NU</item>
+        <item>ON</item>
+        <item>PE</item>
+        <item>QC</item>
+        <item>SK</item>
+        <item>YT</item>
+        <item> </item>
+    </string-array>
+
 </resources>

@@ -5,16 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * This class describes the MainActivity, which is
+ * the entry point to the Seafood Marketplace app.
+ */
 public class MainActivity extends Activity {
 
-    private ListView contactListView;
     private FirebaseListAdapter<Business> firebaseAdapter;
 
     @Override
@@ -30,14 +32,14 @@ public class MainActivity extends Activity {
         appData.firebaseReference = appData.firebaseDBInstance.getReference("businesses");
 
         //Get the reference to the UI contents
-        contactListView = (ListView) findViewById(R.id.listView);
+        ListView contactListView = (ListView) findViewById(R.id.listView);
 
         //Set up the List View
         firebaseAdapter = new FirebaseListAdapter<Business>(this, Business.class,
                 android.R.layout.simple_list_item_1, appData.firebaseReference) {
             @Override
             protected void populateView(View v, Business model, int position) {
-                TextView contactName = (TextView)v.findViewById(android.R.id.text1);
+                TextView contactName = (TextView) v.findViewById(android.R.id.text1);
                 contactName.setText(model.name);
             }
         };
@@ -52,11 +54,21 @@ public class MainActivity extends Activity {
         });
     }
 
+    /**
+     * This method is called when the Create Business button is pressed,
+     * which triggers the business creation activity.
+     * @param v a view, required to link button to method
+     */
     public void createBusinessButton(View v) {
         Intent intent = new Intent(this, CreateBusinessActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * This method is called when a user taps on a business name,
+     * which triggers a detailed view of the business.
+     * @param business the business that was tapped on
+     */
     private void showDetailView(Business business) {
         Intent intent = new Intent(this, DetailViewActivity.class);
         intent.putExtra("Business", business);

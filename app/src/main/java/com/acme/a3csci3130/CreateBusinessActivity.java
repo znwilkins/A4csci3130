@@ -12,12 +12,20 @@ import android.widget.Spinner;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+/**
+ * This class describes an activity where a user can create a business.
+ */
 public class CreateBusinessActivity extends Activity {
 
     private EditText businessNumField, nameField, addressField;
     private Spinner typeSpinner, provTerrSpinner;
     private MyApplicationData appState;
 
+    /**
+     * This method sets up fields of the activity, and makes calls
+     * to finish setting up the activity display.
+     * @param savedInstanceState not used
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +33,14 @@ public class CreateBusinessActivity extends Activity {
         //Get the app wide shared variables
         appState = ((MyApplicationData) getApplicationContext());
 
+        setUpViews();
+    }
+
+    /**
+     * This method associates fields with views, and gives input options
+     * for the type and prov/terr spinners.
+     */
+    private void setUpViews() {
         businessNumField = (EditText) findViewById(R.id.number);
         nameField = (EditText) findViewById(R.id.name);
         addressField = (EditText) findViewById(R.id.address);
@@ -42,6 +58,11 @@ public class CreateBusinessActivity extends Activity {
         provTerrSpinner.setAdapter(provTerrAdapter);
     }
 
+    /**
+     * This method is called when the Create Business button is pressed.
+     * It updates Firebase with the information that the user has input.
+     * @param v not used
+     */
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
         String uid = appState.firebaseReference.push().getKey();

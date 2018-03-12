@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">A3 CSCI3130</string>
+    <string name="app_name">Seafood Marketplace</string>
     <string name="title_activity_list">ListActivity</string>
 
     <string name="create_business">Create business</string>

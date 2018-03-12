@@ -97,7 +97,7 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="8dp"
-        android:onClick="updateContact"/>
+        android:onClick="updateBusiness"/>
 
     <Button
         android:id="@+id/deleteButton"

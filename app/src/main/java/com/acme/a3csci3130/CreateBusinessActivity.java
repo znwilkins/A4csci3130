@@ -1,7 +1,11 @@
 package com.acme.a3csci3130;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -19,6 +23,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class CreateBusinessActivity extends Activity {
+
+    public static class FormattingDialogFragment extends DialogFragment {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.violation)
+                   .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
+                       @Override
+                       public void onClick(DialogInterface dialogInterface, int i) {
+                           // Do nothing
+                       }
+                   });
+            return builder.create();
+        }
+    }
 
     private Button submitButton;
     private EditText businessNumField, nameField, addressField;
@@ -66,12 +85,8 @@ public class CreateBusinessActivity extends Activity {
             public void onComplete(@NonNull Task task) {
                 if (!task.isSuccessful()) {
                     Log.i("CREATE_BUSINESS", task.getException().toString());
-                    Context context = getApplicationContext();
-                    String msg = "Violates formatting rules!";
-
-                    //TODO This is too small, bigger?
-                    Toast toast = Toast.makeText(context, msg, Toast.LENGTH_LONG);
-                    toast.show();
+                    FormattingDialogFragment fragment = new FormattingDialogFragment();
+                    fragment.show(getFragmentManager(), "FORMAT_VIOLATION_FRAGMENT");
                 }
                 else
                     finish();

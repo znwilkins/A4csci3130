@@ -25,12 +25,11 @@ public class DetailViewActivity extends Activity {
         }
     }
 
-    public void updateContact(View v){
-        //TODO: Update contact funcionality
+    public void updateContact(View v) {
+        //TODO: Update contact functionality
     }
 
-    public void eraseContact(View v)
-    {
+    public void eraseContact(View v) {
         //TODO: Erase contact functionality
     }
 }

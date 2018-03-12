@@ -35,7 +35,10 @@
     <string name="okay">Okay</string>
 
     <string name="create">Create</string>
-    <string name="edit">Edit</string>
+    <string name="update">Update</string>
     <string name="delete">Delete</string>
+
+    <string name="retrieve_failure">Unable to retrieve business! Returning to main menu.</string>
+    <string name="delete_failure">Unable to delete business! Wait a moment and try again.</string>
 
 </resources>

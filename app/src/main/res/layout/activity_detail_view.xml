@@ -5,35 +5,95 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.acme.a3csci3130.DetailViewActivity">
-    <EditText
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/name"
-        android:hint = "Name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/number"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
-        android:hint="e-mail"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        android:layout_marginLeft="8dp"
+        android:hint="@string/bus_num"
+        android:inputType="number"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/bus_name"
+        android:maxLength="48"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/number" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/bus_type"
+        android:maxLength="48"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <Spinner
+        android:id="@+id/type_spin"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/bus_type"
+        android:maxLength="48"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/type"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/bus_address"
+        android:maxLength="49"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/provTerr"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/bus_provTerr"
+        android:maxLength="48"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+    <Spinner
+        android:id="@+id/provTerr_spin"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/bus_type"
+        android:maxLength="48"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="@id/provTerr"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 
     <Button
         android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Update Data"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:text="@string/update"
+        app:layout_constraintTop_toBottomOf="@+id/provTerr"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="8dp"
@@ -43,9 +103,9 @@
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Erase Contact"
+        android:text="@string/delete"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/provTerr"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginEnd="8dp"

@@ -1,45 +1,19 @@
 package com.acme.a3csci3130;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 
 public class CreateBusinessActivity extends Activity {
 
-    public static class FormattingDialogFragment extends DialogFragment {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.violation)
-                   .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
-                       @Override
-                       public void onClick(DialogInterface dialogInterface, int i) {
-                           // Do nothing
-                       }
-                   });
-            return builder.create();
-        }
-    }
-
-    private Button submitButton;
     private EditText businessNumField, nameField, addressField;
     private Spinner typeSpinner, provTerrSpinner;
     private MyApplicationData appState;
@@ -51,7 +25,6 @@ public class CreateBusinessActivity extends Activity {
         //Get the app wide shared variables
         appState = ((MyApplicationData) getApplicationContext());
 
-        submitButton = (Button) findViewById(R.id.submitButton);
         businessNumField = (EditText) findViewById(R.id.number);
         nameField = (EditText) findViewById(R.id.name);
         addressField = (EditText) findViewById(R.id.address);
@@ -85,7 +58,10 @@ public class CreateBusinessActivity extends Activity {
             public void onComplete(@NonNull Task task) {
                 if (!task.isSuccessful()) {
                     Log.i("CREATE_BUSINESS", task.getException().toString());
-                    FormattingDialogFragment fragment = new FormattingDialogFragment();
+                    InfoDialogFragment fragment = new InfoDialogFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("msgid", R.string.violation);
+                    fragment.setArguments(bundle);
                     fragment.show(getFragmentManager(), "FORMAT_VIOLATION_FRAGMENT");
                 }
                 else

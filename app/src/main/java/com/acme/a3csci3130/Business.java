@@ -21,9 +21,8 @@ public class Business implements Serializable {
     public String address;
     public String provinceTerritory;
 
-    public Business() {
-        // Default constructor required for calls to DataSnapshot.getValue
-    }
+    /** Default constructor required for calls to DataSnapshot.getValue */
+    public Business() {}
 
     public Business(String uid, String businessNumber, String name, String businessType,
                     String address, String provinceTerritory) {

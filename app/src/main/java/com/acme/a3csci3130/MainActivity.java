@@ -19,13 +19,17 @@ public class MainActivity extends Activity {
 
     private FirebaseListAdapter<Business> firebaseAdapter;
 
+    /**
+     * This method sets up and displays the main activity screen.
+     * @param savedInstanceState not used
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //Get the app wide shared variables
-        MyApplicationData appData = (MyApplicationData)getApplication();
+        MyApplicationData appData = (MyApplicationData) getApplication();
 
         //Set-up Firebase
         appData.firebaseDBInstance = FirebaseDatabase.getInstance();

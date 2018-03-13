@@ -24,7 +24,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/bus_name"
-        android:maxLength="48"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number" />
 
@@ -35,7 +34,6 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:hint="@string/bus_type"
-        android:maxLength="48"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -47,7 +45,6 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="8dp"
         android:hint="@string/bus_type"
-        android:maxLength="48"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/type"
         app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -59,7 +56,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:hint="@string/bus_address"
-        android:maxLength="49"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/type" />
 
@@ -70,7 +66,6 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:hint="@string/bus_provTerr"
-        android:maxLength="48"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address" />
@@ -82,7 +77,6 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="8dp"
         android:hint="@string/bus_type"
-        android:maxLength="48"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="@id/provTerr"
         app:layout_constraintTop_toBottomOf="@+id/address" />

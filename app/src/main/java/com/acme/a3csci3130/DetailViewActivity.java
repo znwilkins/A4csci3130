@@ -21,7 +21,7 @@ public class DetailViewActivity extends Activity {
     private EditText businessNumField, nameField, addressField;
     private Spinner typeSpinner, provTerrSpinner;
     private MyApplicationData appState;
-    private Business receivedBusiness;
+    public Business receivedBusiness;
 
     /**
      * This method sets up fields of the activity, and makes calls

@@ -20,6 +20,7 @@ public class CreateBusinessActivity extends Activity {
     private EditText businessNumField, nameField, addressField;
     private Spinner typeSpinner, provTerrSpinner;
     private MyApplicationData appState;
+    public Business business;
 
     /**
      * This method sets up fields of the activity, and makes calls
@@ -71,7 +72,7 @@ public class CreateBusinessActivity extends Activity {
         String businessType = typeSpinner.getSelectedItem().toString();
         String address = addressField.getText().toString();
         String provTerr = provTerrSpinner.getSelectedItem().toString();
-        Business business = new Business(uid, businessNum, name, businessType, address, provTerr);
+        business = new Business(uid, businessNum, name, businessType, address, provTerr);
 
         Task task = appState.firebaseReference.child(uid).setValue(business);
         task.addOnCompleteListener(new OnCompleteListener() {
